@@ -71,11 +71,14 @@ export default {
   }
 
   .login-form button {
+  padding: 10px 20px;
     border-radius: 5px;
     background-color: #007BFF;
     color: white;
     cursor: pointer;
-    height: 30px;
-    font-size: 16px;
+    border: none;
   }
+.login-form button:hover {
+  background-color: #4498f3;
+}
 </style>
