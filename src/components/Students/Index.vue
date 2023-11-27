@@ -1,9 +1,12 @@
 <template>
     <div class="student-list">
+        <router-link to="/add-student" class="nav-link"> Add Student </router-link>
         <ul>
             <li class="student-item" v-for="student in students" :key="student.id">
                 <span class="student-name">{{ student.name }}</span>
                 <div class="action-list">
+                    <router-link class="edit-link" :to="{name: 'UpdateStudent', params: {id: student.id}}">Edit</router-link>
+                    <router-link class="details-link" :to="{name: 'StudentDetails', params: {id: student.id}}">Read</router-link>
                     <button class="delete-button" @click="deleteStudent(student.id)">delete</button>
                 </div>
             </li>
@@ -78,8 +81,24 @@
         font-size: 8.9em;
     }
 
+    .edit-link {
+        padding: 5px;
+        background-color: #3639f4;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+    }
+
+    .details-link {
+        padding: 5px;
+        background-color: #62626b;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+    }
+
     .delete-button {
-        padding: 5px 10px;
+        padding: 6px 10px;
         background-color: #f44336;
         color: #fff;
         border: none;
@@ -89,6 +108,12 @@
     .delete-button:hover {
         background-color: #fa6358;
         cursor: pointer;
+    }
+
+    .nav-link {
+    padding: 3px;
+    margin: 3px;
+    color: #42b983;
     }
 
 </style>

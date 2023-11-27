@@ -5,6 +5,8 @@ import Register from './components/Register.vue';
 import Login from './components/Login.vue';
 import AddStudent from './components/Students/Create.vue';
 import StudentsList from './components/Students/Index.vue';
+import UpdateStudent from './components/Students/Update.vue';
+import StudentDetails from './components/Students/Read.vue';
 
 const routes = [
     {
@@ -35,6 +37,18 @@ const routes = [
         path: '/students',
         name: 'StudentsList',
         component: StudentsList,
+        meta : {public: false} // Mark this route as private
+    },
+    {
+        path: '/edit-student:id',
+        name: 'UpdateStudent',
+        component: UpdateStudent,
+        meta : {public: false} // Mark this route as private
+    },
+    {
+        path: '/student:id',
+        name: 'StudentDetails',
+        component: StudentDetails,
         meta : {public: false} // Mark this route as private
     },
 ];
