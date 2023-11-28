@@ -8,6 +8,11 @@ import StudentsList from './components/Students/Index.vue';
 import UpdateStudent from './components/Students/Update.vue';
 import StudentDetails from './components/Students/Read.vue';
 
+import AddMissions from './components/Missions/Create.vue';
+import MissionsList from './components/Missions/Index.vue';
+import UpdateMission from './components/Missions/Update.vue';
+import MissionDetails from './components/Missions/Read.vue';
+
 const routes = [
     {
         path: '/',
@@ -49,6 +54,31 @@ const routes = [
         path: '/student:id',
         name: 'StudentDetails',
         component: StudentDetails,
+        meta : {public: false} // Mark this route as private
+    },
+
+    {
+        path: '/add-mission',
+        name: 'AddMissions',
+        component: AddMissions,
+        meta : {public: false} // Mark this route as private
+    },
+    {
+        path: '/missions',
+        name: 'MissionsList',
+        component: MissionsList,
+        meta : {public: false} // Mark this route as private
+    },
+    {
+        path: '/edit-mission:id',
+        name: 'UpdateMission',
+        component: UpdateMission,
+        meta : {public: false} // Mark this route as private
+    },
+    {
+        path: '/mission:id',
+        name: 'MissionDetails',
+        component: MissionDetails,
         meta : {public: false} // Mark this route as private
     },
 ];
