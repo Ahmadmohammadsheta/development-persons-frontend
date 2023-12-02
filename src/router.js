@@ -45,13 +45,13 @@ const routes = [
         meta : {public: false} // Mark this route as private
     },
     {
-        path: '/edit-student:id',
+        path: '/edit-student/:id',
         name: 'UpdateStudent',
         component: UpdateStudent,
         meta : {public: false} // Mark this route as private
     },
     {
-        path: '/student:id',
+        path: '/student/:id',
         name: 'StudentDetails',
         component: StudentDetails,
         meta : {public: false} // Mark this route as private
@@ -70,13 +70,13 @@ const routes = [
         meta : {public: false} // Mark this route as private
     },
     {
-        path: '/edit-mission:id',
+        path: '/edit-mission/:id',
         name: 'UpdateMission',
         component: UpdateMission,
         meta : {public: false} // Mark this route as private
     },
     {
-        path: '/mission:id',
+        path: '/mission/:id',
         name: 'MissionDetails',
         component: MissionDetails,
         meta : {public: false} // Mark this route as private

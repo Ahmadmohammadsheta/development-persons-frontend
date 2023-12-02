@@ -4,6 +4,7 @@
         <ul>
             <li class="student-item" v-for="student in students" :key="student.id">
                 <span class="student-name">{{ student.name }}</span>
+                <span class="student-name">{{ student.records.total_of_today }}</span>
                 <div class="action-list">
                     <router-link class="edit-link" :to="{name: 'UpdateStudent', params: {id: student.id}}">Edit</router-link>
                     <router-link class="details-link" :to="{name: 'StudentDetails', params: {id: student.id}}">Read</router-link>

@@ -1,7 +1,7 @@
 <template>
     <div v-if="mission" class="mission-details">
         <h2 class="mission-title">{{ mission.name }}</h2>
-        <p class="mission-birthdate">{{ mission.birthdate }}</p>
+        <p class="mission-description">{{ mission.description }}</p>
     </div>
 </template>
 
@@ -44,8 +44,9 @@ export default {
         font-size: 2em;
     }
 
-    .mission-birthdate {
+    .mission-description {
         margin-bottom: 20px;
-        font-size: 1.2em;
+        font-size: 1.6em;
+        color: blueviolet;
     }
 </style>
