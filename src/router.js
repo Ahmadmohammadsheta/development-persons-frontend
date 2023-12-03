@@ -13,6 +13,11 @@ import MissionsList from './components/Missions/Index.vue';
 import UpdateMission from './components/Missions/Update.vue';
 import MissionDetails from './components/Missions/Read.vue';
 
+import AddRecords from './components/Records/Create.vue';
+import RecordsList from './components/Records/Index.vue';
+import UpdateRecord from './components/Records/Update.vue';
+import RecordDetails from './components/Records/Read.vue';
+
 const routes = [
     {
         path: '/',
@@ -57,6 +62,7 @@ const routes = [
         meta : {public: false} // Mark this route as private
     },
 
+
     {
         path: '/add-mission',
         name: 'AddMissions',
@@ -79,6 +85,32 @@ const routes = [
         path: '/mission/:id',
         name: 'MissionDetails',
         component: MissionDetails,
+        meta : {public: false} // Mark this route as private
+    },
+
+    
+    {
+        path: '/add-record',
+        name: 'AddRecords',
+        component: AddRecords,
+        meta : {public: false} // Mark this route as private
+    },
+    {
+        path: '/records',
+        name: 'recordsList',
+        component: RecordsList,
+        meta : {public: false} // Mark this route as private
+    },
+    {
+        path: '/edit-record/:id',
+        name: 'Updaterecord',
+        component: UpdateRecord,
+        meta : {public: false} // Mark this route as private
+    },
+    {
+        path: '/record/:id',
+        name: 'recordDetails',
+        component: RecordDetails,
         meta : {public: false} // Mark this route as private
     },
 ];

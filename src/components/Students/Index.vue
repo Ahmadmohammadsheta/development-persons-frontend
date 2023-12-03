@@ -2,9 +2,22 @@
     <div class="student-list">
         <router-link to="/add-student" class="nav-link"> Add Student </router-link>
         <ul>
+            <li class="student-item">
+                <span class="student-name">{{ 'الاسم' }}</span>
+                <!-- <span class="student-name">{{ 'مهمات اليوم' }}</span> -->
+                <!-- <span class="student-name">{{ 'مهمات الشهر' }}</span> -->
+                <!-- <span class="student-name">{{ 'اجمالي المهمات' }}</span> -->
+                <span class="student-name">{{ 'الامر' }}</span>
+            </li>
+        </ul>
+        <ul>
             <li class="student-item" v-for="student in students" :key="student.id">
-                <span class="student-name">{{ student.name }}</span>
-                <span class="student-name">{{ student.records.total_of_today }}</span>
+                <span class="student-name">
+                {{ student.name }} ({{ student.total_records.sum_of_total_records }}) ({{ student.month_records.sum_of_month_records }}) ({{ student.today_records.sum_of_today_records }})
+                </span>
+                <!-- <span class="student-name">{{ student.records.total_of_today }}</span> -->
+                <!-- <span class="student-name">{{ student.records.month_record }}</span> -->
+                <!-- <span class="student-name">{{ student.records.total_records }}</span> -->
                 <div class="action-list">
                     <router-link class="edit-link" :to="{name: 'UpdateStudent', params: {id: student.id}}">Edit</router-link>
                     <router-link class="details-link" :to="{name: 'StudentDetails', params: {id: student.id}}">Read</router-link>
@@ -39,7 +52,7 @@
         async created() {
             try {
                 const response = await axios.get('/students');
-            console.log(response.data)
+                console.log(response.data)
 
                 this.students = response.data.data;
             } catch (error) {

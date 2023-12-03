@@ -6,6 +6,7 @@
             <router-link to="/register" v-if="!isLoggedIn" class="nav-link"> Register </router-link>
             <router-link to="/students" v-if="isLoggedIn" class="nav-link"> Students List </router-link>
             <router-link to="/missions" v-if="isLoggedIn" class="nav-link"> Missions List </router-link>
+            <router-link to="/records" v-if="isLoggedIn" class="nav-link"> Records List </router-link>
         </div>
         <a href="#" @click="logout" v-if="isLoggedIn"> Logout </a>
     </nav>

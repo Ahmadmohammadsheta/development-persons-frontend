@@ -1,14 +1,23 @@
 <template>
-    <div class="mission-list">
-        <router-link to="/add-mission" class="nav-link"> Add Mission </router-link>
+    <div class="record-list">
+        <router-link to="/add-record" class="nav-link"> Add Record </router-link>
         <ul>
-            <li class="mission-item" v-for="mission in missions" :key="mission.id">
-                <span class="mission-name">{{ mission.name }}</span>
-                <span class="index-mission-description">{{ mission.description }}</span>
+            <li class="record-item">
+                <span class="record-name">{{ 'الاسم' }}</span>
+                <span class="record-name">{{ 'مهمات اليوم' }}</span>
+                <span class="record-name">{{ 'النقاط' }}</span>
+                <span class="record-name">{{ 'الامر' }}</span>
+            </li>
+        </ul>
+        <ul>
+            <li class="record-item" v-for="record in records" :key="record.id">
+                <span class="record-name">{{ record.student }}</span>
+                <span class="record-name">{{ record.mission }}</span>
+                <span class="record-name">{{ record.points }}</span>
                 <div class="action-list">
-                    <router-link class="edit-link" :to="{name: 'UpdateMission', params: {id: mission.id}}">Edit</router-link>
-                    <router-link class="details-link" :to="{name: 'MissionDetails', params: {id: mission.id}}">Read</router-link>
-                    <button class="delete-button" @click="deleteMission(mission.id)">delete</button>
+                    <!-- <router-link class="edit-link" :to="{name: 'UpdateRecord', params: {id: record.id}}">Edit</router-link>
+                    <router-link class="details-link" :to="{name: 'RecordDetails', params: {id: record.id}}">Read</router-link> -->
+                    <button class="delete-button" @click="deleteRecord(record.id)">delete</button>
                 </div>
             </li>
         </ul>
@@ -18,18 +27,18 @@
 <script>
     import axios from '@/axios';
     export default {
-        name: 'MissionsList',
+        name: 'RecordsList',
         data() {
             return {
-                missions: []
+                records: []
             }
         },
         methods: {
-            async deleteMission(id) {
+            async deleteRecord(id) {
                 try {
-                    await axios.delete(`/missions/${id}`);
+                    await axios.delete(`/records/${id}`);
 
-                    this.missions = this.missions.filter(mission => mission.id !== id);
+                    this.records = this.records.filter(record => record.id !== id);
                 } catch (error) {
                     console.error("An error occured", error);
                 }
@@ -38,10 +47,10 @@
 
         async created() {
             try {
-                const response = await axios.get('/missions');
-            console.log(response.data)
+                const response = await axios.get('/records');
+                console.log(response.data)
 
-                this.missions = response.data.data;
+                this.records = response.data.data;
             } catch (error) {
                 console.error("An error occured", error);
             }
@@ -49,9 +58,8 @@
     }
 </script>
 
-
 <style>
-    .mission-list {
+    .record-list {
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
@@ -59,7 +67,7 @@
         border-radius: 8px;
     }
 
-    .mission-item {
+    .record-item {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -68,14 +76,9 @@
         border-bottom: 1px solid #ddd;
     }
 
-    .mission-name {
+    .record-name {
         font-weight: bold;
         font-size: 1.1em;
-    }
-
-    .index-mission-description {
-        font-size: 1.1em;
-        color: blueviolet;
     }
 
     .action-links {
